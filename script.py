@@ -1,8 +1,11 @@
 import pymongo
 from pymongo import MongoClient
+import os
 
 # Connect 
-client = MongoClient("mongodb+srv://cluster0.pnxzwgz.mongodb.net/")
+MONGOPASS = os.getenv('MONGOPASS')
+uri = "mongodb+srv://cluster0.pnxzwgz.mongodb.net/"
+client = MongoClient(uri, username='nmagee', password=MONGOPASS, connectTimeoutMS=200, retryWrites=True)
 db = client["mnk3kd"]  
 
 # Create collection
